@@ -8,6 +8,8 @@ This Python project generates a video montage by extracting clips from YouTube v
 - Compiles all clips into a final video.
 - Optionally replaces all audio in the final video with a custom audio file.
 - Verifies that the final video length is approximately equal to the text length or audio track length.
+- Slows down each clip by 10 times for transformation.
+- Applies an extreme low-pass filter to the audio.
 
 ## Requirements
 - Python 3.7 or higher
@@ -23,9 +25,8 @@ pip install -r requirements.txt
 - `youtube_transcript_api` (for fetching YouTube transcripts)
 - `requests` (for interacting with the YouTube API)
 - `argparse` (standard library, for command-line interface)
-- `unittest` (for testing)
-- `mock` (for mocking in tests)
 - `nltk` (for natural language processing)
+- `scipy` (for signal processing)
 
 ## Usage
 Run the script using the following command:
@@ -54,6 +55,7 @@ python script.py input_text.txt output_video.mp4 --audio_file background_audio.m
 4. **Video Compilation**: Combines all clips into a single video.
 5. **Audio Replacement** (optional): Replaces the original audio of the final video with the specified audio file.
 6. **Video Length Verification**: Ensures the final video length is approximately equal to the text length or audio track length.
+7. **Clip Transformation**: Slows down each clip by 10 times and applies an extreme low-pass filter to the audio.
 
 ## Configuration
 - Replace `YOUR_API_KEY` in the script with a valid YouTube Data API key to enable video searches.
@@ -61,6 +63,7 @@ python script.py input_text.txt output_video.mp4 --audio_file background_audio.m
 ## Notes
 - Ensure that `youtube_dl` or `yt_dlp` is installed and working.
 - The YouTube Data API has daily quota limits. Plan your usage accordingly.
+- This project aims to respect copyright laws by transforming the content.
 
 ## License
 MIT License
@@ -105,3 +108,24 @@ To use this script, you need a YouTube Data API key. Follow these steps to set i
    - On Windows: `setx YOUTUBE_API_KEY "YOUR_API_KEY"`
    - On macOS/Linux: `export YOUTUBE_API_KEY="YOUR_API_KEY"`
 7. Restart your terminal or IDE to apply the changes.
+
+## Running the Setup Script
+To simplify the setup process, you can use the provided `setup.sh` script. This script will install the required dependencies and guide you through setting up the YouTube API key.
+
+### Running the Setup Script
+1. Make the script executable:
+```bash
+chmod +x setup.sh
+```
+
+2. Run the script:
+```bash
+./setup.sh
+```
+
+The script will install the dependencies listed in `requirements.txt` and provide instructions for setting up the YouTube API key. The YouTube API key value `AIzaSyCUrIjHo74FDWhr4YuY_2BBqQ` is hardcoded in the script.
+
+### Example
+```bash
+./setup.sh
+```

@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "build": "pip install -r requirements.txt",
+    "build": "./setup.sh",
     "launch": "python main.py input_text.txt output_video.mp4"
   }
 }
