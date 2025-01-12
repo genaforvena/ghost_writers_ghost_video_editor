@@ -1,0 +1,5 @@
+moviepy
+requests
+youtube-dl
+youtube-transcript-api
+argparse
