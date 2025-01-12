@@ -23,6 +23,9 @@ pip install -r requirements.txt
 - `youtube_transcript_api` (for fetching YouTube transcripts)
 - `requests` (for interacting with the YouTube API)
 - `argparse` (standard library, for command-line interface)
+- `unittest` (for testing)
+- `mock` (for mocking in tests)
+- `nltk` (for natural language processing)
 
 ## Usage
 Run the script using the following command:
@@ -37,6 +40,7 @@ python script.py <text_path> <output_file> [--audio_file <audio_file>]
 
 ### Optional Arguments
 - `--audio_file <audio_file>`: Path to an audio file to replace all audio in the final video.
+- `--setup_api_key`: Guide to set up YouTube API key.
 
 ### Example
 ```bash
@@ -64,3 +68,40 @@ MIT License
 ## New Features
 - Added progress indicators to show the progress of the script run.
 - Added functions `calculate_text_length` and `verify_video_length` to ensure the final video length matches the text length or audio track length.
+
+## Running Tests
+To run the tests, use the following command:
+
+```bash
+python -m unittest discover
+```
+
+This will discover and run all the test cases in the project, including the `test_find_and_compile` function.
+
+## Installing NLTK and Downloading Necessary Data
+To install NLTK and download the necessary data, follow these steps:
+
+1. Install NLTK using pip:
+```bash
+pip install nltk
+```
+
+2. Download the necessary NLTK data:
+```python
+import nltk
+nltk.download('punkt')
+nltk.download('stopwords')
+```
+
+## Setting Up the YouTube API Key
+To use this script, you need a YouTube Data API key. Follow these steps to set it up:
+
+1. Go to the Google Cloud Console: https://console.cloud.google.com/
+2. Create a new project or select an existing project.
+3. Enable the YouTube Data API v3 for your project.
+4. Create credentials (API key) for the YouTube Data API v3.
+5. Copy the generated API key.
+6. Set the API key as an environment variable:
+   - On Windows: `setx YOUTUBE_API_KEY "YOUR_API_KEY"`
+   - On macOS/Linux: `export YOUTUBE_API_KEY="YOUR_API_KEY"`
+7. Restart your terminal or IDE to apply the changes.
