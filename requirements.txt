@@ -3,3 +3,7 @@ youtube-dl
 youtube-transcript-api
 argparse
 opencv-python
+unittest
+mock
+tqdm
+nltk
