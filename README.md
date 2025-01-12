@@ -7,6 +7,7 @@ This Python project generates a video montage by extracting clips from YouTube v
 - Extracts video clips using text timestamps from YouTube transcripts.
 - Compiles all clips into a final video.
 - Optionally replaces all audio in the final video with a custom audio file.
+- Verifies that the final video length is approximately equal to the text length or audio track length.
 
 ## Requirements
 - Python 3.7 or higher
@@ -18,7 +19,7 @@ pip install -r requirements.txt
 
 ## Dependencies
 - `youtube_dl` or `yt_dlp` (for downloading YouTube videos)
-- `moviepy` (for video editing)
+- `opencv-python` (for video editing)
 - `youtube_transcript_api` (for fetching YouTube transcripts)
 - `requests` (for interacting with the YouTube API)
 - `argparse` (standard library, for command-line interface)
@@ -48,6 +49,7 @@ python script.py input_text.txt output_video.mp4 --audio_file background_audio.m
 3. **Video Clips**: Using YouTube transcripts, it extracts clips corresponding to the text.
 4. **Video Compilation**: Combines all clips into a single video.
 5. **Audio Replacement** (optional): Replaces the original audio of the final video with the specified audio file.
+6. **Video Length Verification**: Ensures the final video length is approximately equal to the text length or audio track length.
 
 ## Configuration
 - Replace `YOUR_API_KEY` in the script with a valid YouTube Data API key to enable video searches.
@@ -58,3 +60,7 @@ python script.py input_text.txt output_video.mp4 --audio_file background_audio.m
 
 ## License
 MIT License
+
+## New Features
+- Added progress indicators to show the progress of the script run.
+- Added functions `calculate_text_length` and `verify_video_length` to ensure the final video length matches the text length or audio track length.
